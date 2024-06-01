@@ -1,0 +1,17 @@
+{
+  "name": "downloadYT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:file": "node file.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ytdl-core": "https://github.com/khlevon/node-ytdl-core.git#v4.11.3-patch.1"
+  }
+}
