@@ -1,14 +1,18 @@
 const fs = require("fs");
 const yd = require("ytdl-core");
 
-const downloadFolder = "./";
 
 const download = async (URL) => {
-  // audio
-  // const info = await yd.getBasicInfo(URL, { quality: "highestaudio", filter: "audioonly" });
 
-  // video
-  const info = await yd.getBasicInfo(URL, { quality: "highestaudio" });
+  const type = process.argv[3];
+  const downloadFolder = `./${type ? type: 'videos'}`;
+  let info;
+  if (type === 'audios')
+    // audio
+    info = await yd.getBasicInfo(URL, { quality: "highestaudio", filter: "audioonly" });
+  else
+    // video
+    info = await yd.getBasicInfo(URL, { quality: "highestaudio" });
 
   const title = info.player_response.videoDetails.title.replace(/  /g, " ").replace(/ /g, "-");
   yd(URL, { quality: "highestaudio", filter: "audioonly" })
