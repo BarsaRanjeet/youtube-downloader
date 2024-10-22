@@ -10,12 +10,12 @@ const download = async (URL) => {
   const title = `${info.player_response.videoDetails.title.replace(/  /g, " ").replace(/ /g, "-")}${(type === 'audios') ? '.mp3' : '.mp4'}`;
   if (type === 'audios') {
     // audio
-    yd(URL, { quality: "highestaudio", filter: "audioonly" })
+    yd(URL, { quality: "highestaudio" })
       .pipe(fs.createWriteStream(`${downloadFolder}/${title}`));
   }
   else {
     // video
-    yd(URL)
+    yd(URL, {filter: "videoandaudio"})
       .pipe(fs.createWriteStream(`${downloadFolder}/${title}`));
   }
 
