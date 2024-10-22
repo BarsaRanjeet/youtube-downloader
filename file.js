@@ -18,7 +18,6 @@ const download = async (URL) => {
   yd(URL, { quality: "highestaudio", filter: "audioonly" })
     .pipe(fs.createWriteStream(`${downloadFolder}/${title}.mp3`));
 };
-
 const urls = fs.readFileSync("urls.txt", { encoding: "utf-8" }).split('\n');
-const downloadPromise = urls.map(url => download(url));
+const downloadPromise = urls.map(url => url && download(url));
 Promise.all(downloadPromise);
