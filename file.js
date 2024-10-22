@@ -1,5 +1,5 @@
 const fs = require("fs");
-const yd = require("ytdl-core");
+const yd = require("@distube/ytdl-core");
 
 
 const download = async (URL) => {
@@ -14,7 +14,7 @@ const download = async (URL) => {
     // video
     contentFormat = { quality: "highestaudio" };
   const info = await yd.getBasicInfo(URL, contentFormat);
-  const title = `${info.player_response.videoDetails.title.replace(/  /g, " ").replace(/ /g, "-")}/${(type === 'audios')? '.mp3' : '.mp4'}`;
+  const title = `${info.player_response.videoDetails.title.replace(/  /g, " ").replace(/ /g, "-")}${(type === 'audios')? '.mp3' : '.mp4'}`;
   yd(URL, contentFormat)
     .pipe(fs.createWriteStream(`${downloadFolder}/${title}`));
 };

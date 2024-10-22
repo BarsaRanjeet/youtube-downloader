@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ytdl-core": "https://github.com/khlevon/node-ytdl-core.git#v4.11.3-patch.1"
+    "@distube/ytdl-core": "^4.14.4"
   }
 }
