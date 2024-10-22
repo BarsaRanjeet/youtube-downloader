@@ -12,7 +12,7 @@ const download = async (URL) => {
   contentFormat = { quality: "highestaudio", filter: "audioonly" };
   else
     // video
-    contentFormat = { quality: "highestaudio" };
+    contentFormat = {};
   const info = await yd.getBasicInfo(URL, contentFormat);
   const title = `${info.player_response.videoDetails.title.replace(/  /g, " ").replace(/ /g, "-")}${(type === 'audios')? '.mp3' : '.mp4'}`;
   yd(URL, contentFormat)
