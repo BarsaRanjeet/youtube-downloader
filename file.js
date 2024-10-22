@@ -1,7 +1,7 @@
 const fs = require("fs");
 const yd = require("ytdl-core");
 
-const downloadFolder = "/home/ranjeet_barsa/Music/sad";
+const downloadFolder = "./";
 
 const download = async (URL) => {
   // audio
